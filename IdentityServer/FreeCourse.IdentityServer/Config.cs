@@ -12,6 +12,7 @@ namespace FreeCourse.IdentityServer
             new ApiResource("resource_catalog"){Scopes={"catalog_fullpermission"}},
                new ApiResource("resource_photo_stock"){Scopes={"photo_stock_fullpermission"}},
                new ApiResource("resource_basket"){Scopes={"basket_fullpermission"}},
+                  new ApiResource("resource_discount"){Scopes={"discount_fullpermission"}},
                new ApiResource(IdentityServerConstants.LocalApi.ScopeName)
         };
         public static IEnumerable<IdentityResource> IdentityResources =>
@@ -27,6 +28,7 @@ namespace FreeCourse.IdentityServer
             new ApiScope[]
             {
                 new ApiScope("catalog_fullpermission","Catalog API için full erişim"),
+                new ApiScope("discount_fullpermission","Discount API için full erişim"),
                 new ApiScope("basket_fullpermission","Basket API için full erişim"),
                 new ApiScope("photo_stock_fullpermission","Photo Stock API için full erişim"),
                 new ApiScope(IdentityServerConstants.LocalApi.ScopeName)
@@ -40,7 +42,7 @@ namespace FreeCourse.IdentityServer
                     ClientId="WebMvcClient",
                     ClientSecrets= {new Secret("secret".Sha256())},
                     AllowedGrantTypes= GrantTypes.ClientCredentials,
-                    AllowedScopes={ "catalog_fullpermission","photo_stock_fullpermission",IdentityServerConstants.LocalApi.ScopeName }
+                    AllowedScopes={ "catalog_fullpermission","photo_stock_fullpermission", "discount_fullpermission", IdentityServerConstants.LocalApi.ScopeName }
                 },
                    new Client
                 {
